@@ -9,6 +9,7 @@ To test it you can use PostMan.
 4. Send the JSON with the test data in the body. Example:
    {
     "amounts": [10, 20, 50],
-    "currency": "USD"
+    "from_currency": "aud", 
+     "to_currency" : "JYP"
    }
-5. Send the request. It should deliver the total sum converted in CHF. 
+5. Send the request. It should deliver the total sum converted in the currency you would like. 
