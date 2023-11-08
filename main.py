@@ -65,7 +65,8 @@ def convert_handler():
     try:
         # Umrechnungsfunktion basierend auf den Währungen mit aktuellem Kurs
         total_converted = convert_all_and_sum(amounts, lambda x: convert(x, from_currency, to_currency))
-        return jsonify({f"Das Total der Umrechnung von {from_currency} zu {to_currency} ": round(total_converted, 2)})
+        return jsonify({f"Der totale Betrag nach der Umrechnung von {from_currency} zu {to_currency} ist": round(
+            total_converted, 2)})
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
