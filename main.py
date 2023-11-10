@@ -8,7 +8,6 @@ app = Flask(__name__)
 capitalize_currency = lambda currency: currency.upper()
 
 
-# Map und reduce wird hier verwendet damit man die summierte Liste der Amounts umwandeln kann
 def convert_all_and_sum(amounts, conversion_function):
     converted_amounts = map(conversion_function, amounts)
     return reduce(lambda x, y: x + y, converted_amounts)
@@ -29,11 +28,10 @@ def get_exchange_rate(from_currency, to_currency):
     if to_currency not in data['conversion_rates']:
         raise ValueError(f"Umrechnung von {from_currency} zu {to_currency} nicht unterstützt.")
 
-    # Der Umrechnungskurs von der Basiswährung zur Zielwährung wird aus der JSON-Antwort extrahiert und zurückgegeben.
     return data['conversion_rates'][to_currency]
 
 
-# Umrechnung der Amounts in dem man den Amount mit dem Wechselkurs (wird von get_exchange_rate Funktion geholt) multiplipiert
+# Umrechnung der Amounts, in dem man den Betrag mit dem Wechselkurs (wird von get_exchange_rate Funktion geholt) multipliziert
 def convert(amount, from_currency, to_currency):
     if from_currency == to_currency:
         return amount
