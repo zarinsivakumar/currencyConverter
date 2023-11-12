@@ -16,4 +16,8 @@ To test it you can use Postman.
    "from_currency": "aud",
    "to_currency" : "JYP"
    }
-5. Send the request. It should deliver the total sum converted in the currency you would like. 
+5. Send the request. It should deliver the total sum converted in the currency you would like.
+
+### Expected Result
+
+![img.png](img.png)
