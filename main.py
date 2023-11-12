@@ -31,7 +31,6 @@ def get_exchange_rate(from_currency, to_currency):
     return data['conversion_rates'][to_currency]
 
 
-# Umrechnung der Amounts, in dem man den Betrag mit dem Wechselkurs (wird von get_exchange_rate Funktion geholt) multipliziert
 def convert(amount, from_currency, to_currency):
     if from_currency == to_currency:
         return amount
@@ -42,7 +41,7 @@ def convert(amount, from_currency, to_currency):
         raise e
 
 
-# Umrechnungsfunktion basierend auf den Währungen mit aktuellem Kurs
+# Umrechnungsfunktion basierend auf die Währungen mit aktuellem Kurs
 @app.route('/convert', methods=['POST'])
 def convert_handler():
     data = request.get_json()
